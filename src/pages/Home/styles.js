@@ -49,7 +49,6 @@ export default StyleSheet.create({
   },
   buttonDisabled: {
     backgroundColor: 'rgba(255, 19, 0, 0.4)',
-    borderColor: 'red',
   },
   textButton: {
     color: '#FFF',

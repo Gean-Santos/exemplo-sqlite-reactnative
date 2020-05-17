@@ -32,10 +32,20 @@ export default class Home extends Component {
 
    addPessoa = async(text) => {
     try {
-      const res = await ServicePessoa.addData(text.nome, text.apelido ,text.telefone)
-      .then(() => Alert.alert('Sucesso!', 'Cadastrado com Sucesso'))
-      .then(this.allPessoa())
-      .catch(error => Alert.alert('Erro',error));
+      await ServicePessoa.addData(text.nome, text.apelido ,text.telefone)
+        .then(() => Alert.alert('Sucesso!', 'Cadastrado com Sucesso'))
+        .then(this.allPessoa())
+        .catch(error => Alert.alert('Erro',error));
+    } catch (error) {
+      console.log((error));
+    }
+  }
+
+  delPessoa = async(id) => {
+    try {
+      await ServicePessoa.deleteData(id)
+        .then(() => Alert.alert('Sucesso!', 'Deletado com Sucesso'))
+        .then(this.allPessoa())
     } catch (error) {
       console.log((error));
     }
@@ -68,7 +78,7 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.title}> Sabosta </Text>
+          <Text style={styles.title}> Formulário de Clientes </Text>
           <TextInput placeholder='Nome: ' 
             style={styles.input}
             value={this.state.nome}
@@ -99,7 +109,7 @@ export default class Home extends Component {
           </View>
           <Text style={[styles.title, {paddingTop: '15%'}]}>Clientes</Text>
           <FlatList data={this.state.pessoas}
-            renderItem={({item}) => <Pessoa {...item} />}
+            renderItem={({item}) => <Pessoa {...item} onDelete={() => this.delPessoa(item.id)} />}
             keyExtractor={item => (item.id+'')}
           />
         </View>
