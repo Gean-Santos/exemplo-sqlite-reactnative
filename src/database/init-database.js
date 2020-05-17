@@ -9,10 +9,8 @@ export default class databaseInit {
   }
   initDb() {
     var sql = [
-      `DROP TABLE IF EXISTS pessoa;`,
       `create table if not exists pessoa (id integer primary key autoincrement, nome text,
         apelido text, telefone int);`,
-      `insert into pessoa(nome, apelido, telefone) values('Lucas', 'lu', '13997608250');`,
     ];
     
     db.transaction(tx => {

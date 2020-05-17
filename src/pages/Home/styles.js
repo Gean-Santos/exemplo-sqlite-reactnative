@@ -37,18 +37,26 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: '#7D74B1',
+    backgroundColor: 'rgba(59, 145, 45, 1)',
     borderWidth: 1,
     borderRadius: 5,
+    borderBottomColor: '#FFF',
     width: '40%',
     padding: 5,
     alignItems: 'center',
     marginTop: 15,
     marginHorizontal: 10,
   },
+  buttonDisabled: {
+    backgroundColor: 'rgba(255, 19, 0, 0.4)',
+    borderColor: 'red',
+  },
   textButton: {
-    color: '#120946',
+    color: '#FFF',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  textButtonDisabled: {
+    color: 'rgba(255, 162, 154, 0.8)',
   },
 })

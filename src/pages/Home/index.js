@@ -32,16 +32,13 @@ export default class Home extends Component {
 
    addPessoa = async(text) => {
     try {
-      console.log(text.nome, text.apelido, text.telefone)
       const res = await ServicePessoa.addData(text.nome, text.apelido ,text.telefone)
-      .then(() => Alert.alert('Foi'))
+      .then(() => Alert.alert('Sucesso!', 'Cadastrado com Sucesso'))
       .then(this.allPessoa())
-      .catch(error => console.log(error));
+      .catch(error => Alert.alert('Erro',error));
     } catch (error) {
       console.log((error));
     }
-    
-    
   }
 
   clearInputs() {
@@ -59,10 +56,15 @@ export default class Home extends Component {
       }), error => {
         console.log(error);
       }
-    
   }
 
   render() {
+    const validations = [];
+    validations.push(this.state.nome && this.state.nome.length > 2);
+    validations.push(this.state.apelido);
+    validations.push(this.state.telefone && this.state.telefone.length == 11)
+
+    const validForm = validations.reduce((total, atual) => total && atual);
     return (
       <View style={styles.container}>
         <View style={styles.box}>
@@ -87,9 +89,12 @@ export default class Home extends Component {
               onPress={() => this.clearInputs()}>
               <Text style={styles.textButton}>Limpar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}
-              onPress={() => this.addPessoa(this.state)}>
-              <Text style={styles.textButton}>Gravar</Text>
+            <TouchableOpacity style={[styles.button, validForm ? {} : 
+              styles.buttonDisabled]}
+              onPress={() => this.addPessoa(this.state)}
+              disabled={!validForm}
+            >
+              <Text style={[styles.textButton, validForm ? {} : styles.textButtonDisabled]}>Gravar</Text>
             </TouchableOpacity>
           </View>
           <Text style={[styles.title, {paddingTop: '15%'}]}>Clientes</Text>
