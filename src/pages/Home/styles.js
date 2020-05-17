@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 30,
+    padding: 20,
     backgroundColor: 'rgba(1, 1, 1, 1)',
     width: '100%',
     alignItems: 'center',
@@ -14,6 +14,7 @@ export default StyleSheet.create({
     borderRadius: 5,
     backgroundColor: 'rgba(38, 27, 100, 0.8)',
     width: '100%',
+    height: '100%',
     padding: 20,
   },
   title: {
@@ -22,19 +23,28 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  secondTitle: {
+    marginTop: '10%',
+    paddingTop: '3%', 
+    borderTopWidth: 2,
+    borderTopColor: '#FFF',
+  },
   input: {
     borderWidth: 2,
     borderRadius: 5,
+    borderColor: '#FFF',
     backgroundColor: 'rgba(125, 116, 177, 0.4)',
     color: '#FFF',
     paddingLeft: 10,
     paddingVertical: 5,
-    marginTop: 10,
+    marginTop: 15,
+    fontWeight: 'bold',
   },
   panel: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10
   },
   button: {
     backgroundColor: 'rgba(59, 145, 45, 1)',

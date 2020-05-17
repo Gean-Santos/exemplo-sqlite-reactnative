@@ -107,7 +107,7 @@ export default class Home extends Component {
               <Text style={[styles.textButton, validForm ? {} : styles.textButtonDisabled]}>Gravar</Text>
             </TouchableOpacity>
           </View>
-          <Text style={[styles.title, {paddingTop: '15%'}]}>Clientes</Text>
+          <Text style={[styles.title, styles.secondTitle]}>Clientes</Text>
           <FlatList data={this.state.pessoas}
             renderItem={({item}) => <Pessoa {...item} onDelete={() => this.delPessoa(item.id)} />}
             keyExtractor={item => (item.id+'')}
