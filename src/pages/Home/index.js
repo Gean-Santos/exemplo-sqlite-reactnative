@@ -92,7 +92,7 @@ export default class Home extends Component {
               <Text style={styles.textButton}>Gravar</Text>
             </TouchableOpacity>
           </View>
-          <Text style={[styles.title, {paddingTop: 10}]}>Clientes</Text>
+          <Text style={[styles.title, {paddingTop: '15%'}]}>Clientes</Text>
           <FlatList data={this.state.pessoas}
             renderItem={({item}) => <Pessoa {...item} />}
             keyExtractor={item => (item.id+'')}
