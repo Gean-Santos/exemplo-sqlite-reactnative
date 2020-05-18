@@ -54,6 +54,6 @@ export default class PessoaService {
 				console.log(txError);
 
 		}));
-}
+    }
 
 }

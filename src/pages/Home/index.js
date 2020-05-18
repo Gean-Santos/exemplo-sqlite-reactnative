@@ -5,7 +5,8 @@ import {
   TextInput, 
   TouchableOpacity,
   FlatList,
-  Alert
+  Alert,
+  StatusBar,
 } from 'react-native';
 
 import ServicePessoa from '../../services/pessoa';
@@ -84,6 +85,7 @@ export default class Home extends Component {
     const validForm = validations.reduce((total, atual) => total && atual);
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor="rgba(38, 27, 100, 0.8)" />
         {this.state.visible ? this.onDetalhes(this.state.pessoa) : false}
         <View style={styles.box}>
           <Text style={styles.title}> Formulário de Clientes </Text>

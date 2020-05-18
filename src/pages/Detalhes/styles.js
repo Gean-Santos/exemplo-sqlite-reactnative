@@ -34,6 +34,7 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#FFF',
+    paddingBottom: 15,
   },
   button: {
     margin: 20, 
