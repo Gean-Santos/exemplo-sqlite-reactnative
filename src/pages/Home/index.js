@@ -99,7 +99,8 @@ export default class Home extends Component {
             value={this.state.apelido}
             onChangeText={text => this.setState({apelido: text})}
           />
-          <TextInput placeholder='Telefone: ' 
+          <TextInput placeholder='Telefone: '
+            maxLength={11}
             style={styles.input}
             value={this.state.telefone}
             onChangeText={text => this.setState({telefone: text})}
