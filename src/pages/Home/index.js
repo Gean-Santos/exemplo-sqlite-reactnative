@@ -18,6 +18,8 @@ const initialState = {
   nome: '',
   apelido: '',
   telefone: '', 
+  visible: false,
+  pessoa: [],
 };
 
 export default class Home extends Component {
@@ -39,6 +41,11 @@ export default class Home extends Component {
     } catch (error) {
       console.log((error));
     }
+  }
+
+  onDetalhes = async (pessoa) => {
+    //return console.log(pessoa)
+    this.props.navigation.navigate('Details', pessoa); 
   }
 
   delPessoa = async(id) => {
@@ -77,6 +84,7 @@ export default class Home extends Component {
     const validForm = validations.reduce((total, atual) => total && atual);
     return (
       <View style={styles.container}>
+        {this.state.visible ? this.onDetalhes(this.state.pessoa) : false}
         <View style={styles.box}>
           <Text style={styles.title}> Formulário de Clientes </Text>
           <TextInput placeholder='Nome: ' 
@@ -109,7 +117,8 @@ export default class Home extends Component {
           </View>
           <Text style={[styles.title, styles.secondTitle]}>Clientes</Text>
           <FlatList data={this.state.pessoas}
-            renderItem={({item}) => <Pessoa {...item} onDelete={() => this.delPessoa(item.id)} />}
+            renderItem={({item}) => <Pessoa {...item} onDelete={() => this.delPessoa(item.id)} 
+            onDetails={() => this.onDetalhes({...item})} />}
             keyExtractor={item => (item.id+'')}
           />
         </View>

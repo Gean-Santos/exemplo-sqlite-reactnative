@@ -5,7 +5,10 @@ import styles from './styles';
 
 const Pessoa = props => {
   return (
-    <TouchableOpacity style={styles.button} onLongPress={props.onDelete}>
+    <TouchableOpacity style={styles.button} 
+      onLongPress={props.onDelete}
+      onPress={() => props.onDetails()}
+    >
       <View style={styles.container}>
         <Text style={styles.text}>{props.id} -</Text>
         <Text style={styles.text}>{props.nome}</Text>
